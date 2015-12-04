@@ -34,30 +34,55 @@ console.log("need to store the token in db, if going to invalidate/recall later"
         },
         validate: function(username, password) {
 					
-            // spoofing the DB response for simplicity
+            // spoofing the DB response for simplicity for two users
 						// console.log("database call required to validate user");
+						var dbUserObj = null;
 						
 						if (username === 'rlacey2@example.com' && password === 'pass123')
-						{
-            var dbUserObj = { // spoofing a userobject from the DB. 
-                name: 'rlacey2',
-                role: 'admin',
-                username: 'rlacey2@example.com'
-            };
-            return dbUserObj;
-					  }
-						else{
-							return null;
-						}
+									{
+											dbUserObj = { // spoofing a userobject from the DB. 
+																		name: 'rlacey2',
+																		role: 'admin',
+																		username: 'rlacey2@example.com'
+																		};
+									}
+						else 
+							if (username === 'rlacey1@example.com' && password === 'pass123')
+									{
+											dbUserObj = { // spoofing a userobject from the DB. 
+																		name: 'rlacey1',
+																		role: 'user',
+																		username: 'rlacey1@example.com'
+																		};
+									}						
+ 
+							return dbUserObj;
         },
         validateUser: function(username) {
             // spoofing the DB response for simplicity
-            var dbUserObj = { // spoofing a userobject from the DB. 
-                name: 'rlacey2',
-                role: 'admin',   // change this role to test admin api i.e. invalidate
-                username: 'rlacey2@example.com'
-            };
-            return dbUserObj;
+						
+						var dbUserObj = null;
+						
+						if (username === 'rlacey2@example.com')
+									{
+											dbUserObj = { // spoofing a userobject from the DB. 
+																		name: 'rlacey2',
+																		role: 'admin',
+																		username: 'rlacey2@example.com'
+																		};
+									}
+						else 
+							if (username === 'rlacey1@example.com')
+									{
+											dbUserObj = { // spoofing a userobject from the DB. 
+																		name: 'rlacey1',
+																		role: 'user',
+																		username: 'rlacey1@example.com'
+																		};
+									}						
+ 
+							return dbUserObj;						
+
         },
     }
     // private method

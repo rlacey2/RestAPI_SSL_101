@@ -33,12 +33,16 @@ console.log("*********************************");
             }
 						
             // Authorize the user to see if s/he can access our resources
-            var dbUser = validateUser(decoded.user.name); // The key would be the logged in user's username
-						console.log("dbUser = " + dbUser);
+            var dbUser = validateUser(decoded.user.username); // The key would be the logged in user's username
+						 
             if (dbUser) {
+							var isAdminRoute = req.url.indexOf('admin') >= 0 ? true : false;
+							console.log("admin route  = " + isAdminRoute);
+							console.log("route        = " + req.url);
+							console.log("role         = " + dbUser.role);
 									
-                if ((req.url.indexOf('admin') >= 0 && dbUser.role == 'admin') ||
-        								(req.url.indexOf('admin') < 0 && req.url.indexOf('/api/v1/') >= 0)) {
+                if ((isAdminRoute && dbUser.role == 'admin') ||
+        								( ! isAdminRoute  && req.url.indexOf('/api/v1/') >= 0)) {
 
 										
                     next(); // To move to next middleware
