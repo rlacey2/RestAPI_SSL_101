@@ -7,6 +7,7 @@ var user = require('./users.js');
 * Routes that can be accessed by any one
 */
 router.post('/login', auth.login);
+router.get('/test', function(req,res) { res.send("Test Response");} );
 /*
 * Routes that can be accessed only by authenticated users
 */
@@ -23,4 +24,4 @@ router.get('/api/v1/admin/user/:id', user.getOne);
 router.post('/api/v1/admin/user/', user.create);
 router.put('/api/v1/admin/user/:id', user.update);
 router.delete('/api/v1/admin/user/:id', user.delete);
-module.exports = router;
+module.exports = router; 

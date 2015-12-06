@@ -1,15 +1,6 @@
 # RestAPI_SSL_101
+
 RestAPI to resources - angular, express, node, SSL
-
-port 3443  = server with REST routes
-
-port 2772   = client of the routes = localhost:2772/#/login
-started with gulp in the ngClient folder once steps followed in tutorial
-
-
-Implemented on a windows system.
-
-Hence, curl examples are modified for windows use.
 
 based on: 
 
@@ -22,27 +13,75 @@ HTTPS implmented rather than HTTP,
 Follow the steps from:
 http://www.hacksparrow.com/express-js-https.html
 
-
-and then paste the corresponding code from this project over the relevant file.
-Or download this project and install via npm/slush as required.
+You may get a browser warning initially on the https usage due to the nature of the certificate, proceed to accept the route(s).
 
 
-The node_modules of the folder server and  ngClient are not uploaded
-These should be installed as described at:
-http://thejackalofjavascript.com/architecting-a-restful-node-js-app/
+port 3443  = server with REST routes
+
+port 2772   = client of the routes = localhost:2772/#/login
+started with gulp in the ngClient folder once steps followed in tutorial
 
 
-The package.json is available in each folder to use npm update
+Implemented on a windows system.
+
+Hence, curl examples are modified for windows use.
 
 
-server/ssl contains test ssl files only - DO NOT use in a live system.
+Please note the following folders are not pushed to the repo  
+
+server\node_module
+ngClient\node_module
+
+Hence, they need to be rebuilt after installing the repo
+
+Open a cmd window at the folder server and run the following command:
+
+			npm install --save  
+		 
+		 
+To run the server on port 3443: 
+
+			node server.js or nodemon server.js  (if nodemon installed)
+			
+			In your browser enter https://localhost:3443/test to test the server is running.
+			
 
 
-server.js has been changed to allow for HTTPS on port 3443
+Open a cmd window at the folder ngClient and run the following command:
+
+     npm install --save  
+		 
+To run the client on port 2772, type at the command prompt in ngClient:
+
+	   gulp
+
+		 enter http://localhost:2772/#/login in a browser to test the client
+		 
+		 
+		 
+ 
 
 
-taking the username rather than user from the decoded token for validation
 
+ 
+Some other changes:
+
+Server/ssl contains test ssl files only - DO NOT use in a live system.
+
+Taking the username rather than user from the decoded token for validation.
+
+Change the sample username to rlacey2@example.com, as an admin.
+
+Optimised the logic around line 35 of middlewares/validateRequest.js using:
+
+var isAdminRoute = req.url.indexOf('admin') >= 0 ? true : false; to replace two index calls with isAdminRoute and ! isAdminRoute
+
+
+Various console.log statements added to files, remove later.
+
+Added a user rlacey1@example.com (not admin) with password pass123
+
+ 
 
 CURL Scripts in  \private\curl_scripts
 
@@ -66,15 +105,6 @@ You should not see the list this time.
 
 https://localhost:3443/api/v1/admin/users
 
-
-optimised the logic around line 35 of middlewares/validateRequest.js using
-
-var isAdminRoute = req.url.indexOf('admin') >= 0 ? true : false; to replace two index calls with isAdminRoute and ! isAdminRoute
-
-
-various console.log statements added to files, remove later.
-
-added a user rlacey1@example.com (not admin) with password pass123
 
 
 

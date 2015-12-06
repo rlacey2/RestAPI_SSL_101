@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 
 var fs = require('fs');  // for certs
 
-var https = require('https'); 
+var https = require('https');    
 
 // start the server with ssl
  
@@ -40,7 +40,7 @@ app.all('/*', function(req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-type,Accept,X-Access-Token');
     if (req.method == 'OPTIONS') {
         res.status(200).end();
-    } else {
+    } else { 
         next();
     }
 });
