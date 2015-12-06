@@ -87,6 +87,7 @@ Removed bower and its postinstall step from the package.json in ngClient, saving
 ngClient\package.json was
 
 //////////
+
 {
   "name": "securerestapi01",
   "version": "0.1.0",
@@ -99,6 +100,7 @@ ngClient\package.json was
     "postinstall": "node node_modules/bower/bin/bower install"
   }
 }
+
 //////////
 
 
@@ -117,27 +119,3 @@ rlacey1@example.com is an ordinary user
 
 paste the token into returned into adminAllUsers1.bat and run, you should see an error message
 This is correct as the user is an ordinary user with not authorisation on the route.
-
-
-Edit server/routes/auth.js and change the rlacey2@example.com role to user, 
-then run login in again to get a new session token and paste to to adminAllUsers and run again.
-You should not see the list this time.
-
-https://localhost:3443/api/v1/admin/users
-
-
-
-
-
- 
- 
- 
- 
- 
- 
-   
-
-
-
-
-
