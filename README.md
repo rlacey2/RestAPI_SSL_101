@@ -82,6 +82,26 @@ Various console.log statements added to files, remove later.
 Added a user rlacey1@example.com (not admin) with password pass123
 
  
+Removed bower and its postinstall step from the package.json in ngClient, saving 4000+ files
+
+ngClient\package.json was
+
+//////////
+{
+  "name": "securerestapi01",
+  "version": "0.1.0",
+  "dependencies": {
+    "bower": "^1.3.9",
+    "gulp": "^3.8.7",
+    "gulp-connect": "^2.0.6"
+  },
+  "scripts": {
+    "postinstall": "node node_modules/bower/bin/bower install"
+  }
+}
+//////////
+
+
 
 CURL Scripts in  \private\curl_scripts
 

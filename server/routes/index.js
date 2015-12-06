@@ -7,7 +7,7 @@ var user = require('./users.js');
 * Routes that can be accessed by any one
 */
 router.post('/login', auth.login);
-router.get('/test', function(req,res) { res.send("Test Response");} );
+router.get('/test', function(req,res) { res.send("<h1>Test Response</h1>");} );
 /*
 * Routes that can be accessed only by authenticated users
 */
