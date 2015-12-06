@@ -1,5 +1,5 @@
 node_modules/
 _readme.txt
 save.bat
-secret.js
+server/secret.js
 
