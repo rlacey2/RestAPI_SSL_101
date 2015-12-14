@@ -2,6 +2,9 @@
 
 RestAPI to resources - angular, express, node, SSL
 
+The SSL here refers to the node/express server running with SSL, later versions will need separate SSL configuration for mysql SSL .
+
+
 based on: 
 
 http://thejackalofjavascript.com/architecting-a-restful-node-js-app/
