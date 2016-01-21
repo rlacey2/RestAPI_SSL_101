@@ -1,5 +1,9 @@
 # RestAPI_SSL_101
 
+This version has requires two simulated servers, one for the client and one for the rest/db server.
+
+Later versions use the one server.
+
 RestAPI to resources - angular, express, node, SSL
 
 The SSL here refers to the node/express server running with SSL, later versions will need separate SSL configuration for mysql SSL .

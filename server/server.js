@@ -51,6 +51,16 @@ app.all('/*', function(req, res, next) {
 // are sure that authentication is not needed
 app.all('/api/v1/*', [require('./middlewares/validateRequest')]);
 
+console.log("__dirname = " + __dirname);
+
+ 
+app.use( // public client pages  THIS FINDS _ngClient/index.html
+			"/", //the URL throught which you want to access to you static content
+			express.static(__dirname + '../ngClient')  //where your static content is located in your filesystem
+				); 
+
+
+
 app.use('/', require('./routes')); // will use index.js by default
 
 // If no route is matched by now, it must be a 404
@@ -68,5 +78,10 @@ var server = app.listen(app.get('port'), function() {
 });
 */
 
+
+console.log ("process.argv[2] = " + process.argv[2])
+var portNo = process.argv[2] || 3443;
+
 var server = https.createServer(credentials, app);
-server.listen(3443);
+console.log("listening on port: " + portNo);
+server.listen(portNo);

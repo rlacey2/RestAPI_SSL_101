@@ -24,4 +24,12 @@ router.get('/api/v1/admin/user/:id', user.getOne);
 router.post('/api/v1/admin/user/', user.create);
 router.put('/api/v1/admin/user/:id', user.update);
 router.delete('/api/v1/admin/user/:id', user.delete);
+
+
+router.get('/', function(req, res) {
+	console.log(__dirname);
+	console.log(path.join(__dirname + '/../../ngClient/index.html'));
+    res.sendFile(path.join(__dirname + '/../../ngClient/index.html'));
+});
+
 module.exports = router; 
